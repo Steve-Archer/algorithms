@@ -1,4 +1,4 @@
-const groupAnagrams = function (strs) {
+/* const groupAnagrams = function (strs) {
     const strsMap = strs.reduce((map, str) => {
         sortedStr = [...str].sort().join('');
         console.log(sortedStr)
@@ -44,4 +44,33 @@ table.setString("email", "mrr@mail.com")
 table.setString("phone", "mrr@mail")
 table.setString("check", "mrr@ma")
 table.getString('fName')
+
+ */
+
+const binarySearch = (arr, target, start = 0, end=arr.length-1, mid = Math.floor((start+end)/2)) => {
+    if(start==end&&target!=arr[mid]) return -1
+    else if(target==arr[mid]){
+        return mid
+    }
+    else if(target<arr[mid]){
+        return binarySearch(arr, target, start, end=mid-1)
+    }
+    else {
+        return binarySearch(arr, target, start=mid+1, end)
+    }
+}
+console.log(binarySearch([3,4,5,7,8,9,10], 8))
+console.log(binarySearch([3,4,5,7,8,9,10], 6))
+console.log(binarySearch([3,4,5,7,8,9,10,13,15,19], 13))
+
+
+
+
+
+
+
+
+
+
+
 
